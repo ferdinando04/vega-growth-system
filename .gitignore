@@ -1,0 +1,67 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores e IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Agentes de IA (directorios de configuración)
+.agent/
+.agents/
+.augment/
+.claude/
+.cursor/
+.gemini/
+.windsurf/
+
+# Node modules (si agregas Node.js en el futuro)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos temporales
+*.log
+*.tmp
+*.temp
+*.cache
+
+# Archivos de respaldo
+*.bak
+*.backup
+*~
+
+# Archivos originales del prototipo (opcional - puedes descomentar si quieres excluirlos)
+# code.html
+# stitch.zip
+# screen.png
+
+# Archivos grandes o temporales
+foto_Perfil.png
+
+# Build outputs (por si usas bundlers después)
+dist/
+build/
+.cache/
+
+# Environment variables (si agregas en el futuro)
+.env
+.env.local
+.env.production
+
+# Sistema de macOS
+.AppleDouble
+.LSOverride
+
+# Windows
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
