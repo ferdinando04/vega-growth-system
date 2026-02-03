@@ -138,6 +138,117 @@
             filter: grayscale(0%) contrast(1);
             transform: scale(1.05);
         }
+
+        /* Automation Flow Animation Keyframes */
+        @keyframes slide-fade-in-down {
+            from {
+                opacity: 0;
+                transform: translateY(-30px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes gentle-float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes line-draw {
+            from {
+                height: 0%;
+                opacity: 0;
+            }
+
+            to {
+                height: 100%;
+                opacity: 1;
+            }
+        }
+
+        @keyframes data-flow {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(200%);
+                opacity: 0;
+            }
+        }
+
+        @keyframes pulse-process {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(168, 85, 247, 0.8);
+            }
+        }
+
+        @keyframes scale-bounce {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            60% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes tech-scan {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translateY(300%);
+                opacity: 0.3;
+            }
+        }
+
+        @keyframes rotate-spinner {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 
@@ -209,42 +320,107 @@
                     </div>
                 </div>
 
-                <div class="flex-1 w-full mt-6 md:mt-0 relative group animate-float">
+                <!-- Automation Flow Animation -->
+                <div class="flex-1 w-full mt-6 md:mt-0 relative">
+                    <!-- Animated Background Glow -->
                     <div
                         class="absolute -inset-1 bg-gradient-to-r from-primary to-purple-600 rounded-xl blur opacity-25 group-hover:opacity-40 transition duration-1000">
                     </div>
+
+                    <!-- Container -->
                     <div
-                        class="relative bg-surface border border-white/10 rounded-xl overflow-hidden aspect-[4/3] shadow-2xl">
-                        <div class="absolute inset-0 bg-[#151921] flex flex-col p-4">
-                            <div class="flex gap-2 mb-4">
-                                <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
-                                <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                                <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
-                            </div>
-                            <div class="flex gap-4 h-full">
-                                <div class="w-1/4 h-full bg-white/5 rounded-lg animate-pulse"></div>
-                                <div class="flex-1 flex flex-col gap-4">
+                        class="relative bg-surface border border-white/10 rounded-xl overflow-hidden aspect-[4/3] shadow-2xl p-8 md:p-12 flex items-center justify-center">
+                        <!-- Tech Grid Background -->
+                        <div class="absolute inset-0 opacity-[0.03]"
+                            style="background-image: radial-gradient(circle, #3B82F6 1px, transparent 1px); background-size: 24px 24px;">
+                        </div>
+
+                        <!-- Scan Line -->
+                        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-40"
+                            style="animation: tech-scan 8s linear infinite;">
+                        </div>
+
+                        <!-- Flow Container -->
+                        <div class="relative z-10 flex flex-col items-center gap-6 md:gap-8 w-full max-w-sm">
+
+                            <!-- Step 1: Trigger (New Lead) -->
+                            <div class="w-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/20 rounded-xl p-4 shadow-xl hover:scale-105 transition-transform duration-300"
+                                style="animation: slide-fade-in-down 0.6s ease-out 0s both, gentle-float 4s ease-in-out 0.8s infinite;">
+                                <div class="flex items-center gap-3">
                                     <div
-                                        class="h-32 bg-primary/10 rounded-lg border border-primary/20 relative overflow-hidden">
-                                        <div
-                                            class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-primary/20 to-transparent">
+                                        class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-blue-400 flex items-center justify-center shadow-lg">
+                                        <span class="material-symbols-outlined text-white text-[24px]">person_add</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-white font-bold text-sm md:text-base">Nuevo Lead</p>
+                                        <p class="text-text-secondary text-xs">Empresa S.A.</p>
+                                    </div>
+                                    <div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                                </div>
+                            </div>
+
+                            <!-- Connecting Line 1 + Data Particle -->
+                            <div class="relative flex items-center justify-center" style="height: 60px;">
+                                <div class="w-0.5 bg-gradient-to-b from-primary/40 to-purple-500/40 rounded-full"
+                                    style="animation: line-draw 0.4s linear 0.4s both; border-style: dashed; border-width: 0 0 0 2px; border-color: rgba(59, 130, 246, 0.3); height: 100%;">
+                                </div>
+                                <!-- Data Particle -->
+                                <div class="absolute w-2 h-2 rounded-full bg-primary shadow-lg shadow-primary/50"
+                                    style="animation: data-flow 1.6s ease-in 0.4s infinite;">
+                                </div>
+                            </div>
+
+                            <!-- Step 2: Processing (n8n) -->
+                            <div class="w-full bg-gradient-to-br from-purple-500/20 to-orange-500/20 backdrop-blur-md border border-purple-500/30 rounded-xl p-4 shadow-xl hover:scale-105 transition-transform duration-300"
+                                style="animation: slide-fade-in-down 0.6s ease-out 0.6s both, pulse-process 2s ease-in-out 1.2s infinite;">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="relative flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-purple-600 to-orange-500 flex items-center justify-center shadow-lg">
+                                        <span class="material-symbols-outlined text-white text-[24px]">settings</span>
+                                        <!-- Spinner -->
+                                        <div class="absolute inset-0 border-2 border-white/30 border-t-white rounded-lg"
+                                            style="animation: rotate-spinner 1s linear infinite;">
                                         </div>
                                     </div>
-                                    <div class="grid grid-cols-2 gap-4 h-full">
-                                        <div class="bg-white/5 rounded-lg"></div>
-                                        <div class="bg-white/5 rounded-lg"></div>
+                                    <div class="flex-1">
+                                        <p class="text-white font-bold text-sm md:text-base">n8n Processing</p>
+                                        <p class="text-purple-300 text-xs">Enriqueciendo datos...</p>
                                     </div>
                                 </div>
                             </div>
-                            <div
-                                class="absolute bottom-[-20px] right-[-10px] w-24 h-48 bg-black border-4 border-[#282e39] rounded-[2rem] shadow-2xl rotate-[-6deg] overflow-hidden z-10 flex flex-col items-center pt-2">
-                                <div class="w-8 h-1 bg-gray-800 rounded-full mb-2"></div>
-                                <div class="w-full h-full bg-[#1c1f27] p-2 flex flex-col gap-2">
-                                    <div class="w-full h-16 bg-primary rounded-lg"></div>
-                                    <div class="w-full h-2 bg-white/10 rounded-full"></div>
-                                    <div class="w-2/3 h-2 bg-white/10 rounded-full"></div>
+
+                            <!-- Connecting Line 2 + Data Particle -->
+                            <div class="relative flex items-center justify-center" style="height: 60px;">
+                                <div class="w-0.5 bg-gradient-to-b from-purple-500/40 to-green-500/40 rounded-full"
+                                    style="animation: line-draw 0.4s linear 1s both; height: 100%;">
+                                </div>
+                                <!-- Data Particle -->
+                                <div class="absolute w-2 h-2 rounded-full bg-purple-500 shadow-lg shadow-purple-500/50"
+                                    style="animation: data-flow 1.6s ease-in 1s infinite;">
                                 </div>
                             </div>
+
+                            <!-- Step 3: Success (WhatsApp Sent) -->
+                            <div class="w-full bg-gradient-to-br from-green-500/20 to-green-600/20 backdrop-blur-md border border-green-500/40 rounded-xl p-4 shadow-2xl shadow-green-500/20 hover:scale-105 transition-transform duration-300"
+                                style="animation: scale-bounce 0.8s cubic-bezier(0.68,-0.55,0.265,1.55) 1.2s both;">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center shadow-lg shadow-green-500/40">
+                                        <span
+                                            class="material-symbols-outlined text-white text-[24px]">check_circle</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-white font-bold text-sm md:text-base">¡Cita Agendada!</p>
+                                        <p class="text-green-300 text-xs">WhatsApp enviado • Hace 1 min</p>
+                                    </div>
+                                    <div class="flex gap-1">
+                                        <div class="w4 h-1 w-1 rounded-full bg-green-400"></div>
+                                        <div class="w-1 h-1 rounded-full bg-green-400"></div>
+                                        <div class="w-1 h-1 rounded-full bg-green-400"></div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
